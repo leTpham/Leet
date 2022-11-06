@@ -15,6 +15,7 @@
  */
 
 function invertTree(root){
+  //because we keep taking root as left/right of node, stop if no more level below
   if (root) {
     let temp = root.left;
     root.left = root.right;
