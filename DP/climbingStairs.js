@@ -5,6 +5,12 @@
  * Each time you can either climb 1 or 2 steps.
  * In how many distinct ways can you climb to the top?
  */
+/**
+ * build an array. each item's index corresponds to the amount of steps,
+ * and the element's values tells the amount of ways.
+ * (each element's value is the sum of the previos twos)
+ * given an n amount of steps, return the nth element in the array
+ */
 
 function climbStairs(n) {
   let arrWays = []
