@@ -12,7 +12,7 @@ function climbStairs(n) {
   arrWays[2] = 2
 
   for (let i = 3; i <= n; i++) {
-    arrWays[i] = arrWays[i-1] + arrWays[i-2])
+    arrWays[i] = arrWays[i-1] + arrWays[i-2]
   }
   return arrWays[n];
 }
