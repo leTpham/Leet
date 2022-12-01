@@ -19,5 +19,7 @@ function TreeNode(val, left, right) {
 
 function maxDepth(root) {
   if (!root) return 0;
+  //we add 1 to height because a tree with only root node has height 0,
+  //so once tree advances after condition we start adding 1
   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 }
