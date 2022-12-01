@@ -13,8 +13,18 @@
  * @return {number}
  */
 
+function height(root) {
+  if (!root) return 0;
+  return Math.max(height(root.left), height(root.right)) + 1;
+}
+function diameter(root) {
+  if (!root) return 0;
+  let leftHeight = height(root.left);
+  let rightHeight = height(root.right);
 
-function diameterOfBinaryTree(root) {
-  let diameter = 0;
+  let leftDiameter = diameter(root.left);
+  let rightDiameter = diameter(root.right);
+
+  return Math.max(leftHeight + rightHeight, Math.max(leftDiameter, rightDiameter))
 
 }
