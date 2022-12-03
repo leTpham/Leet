@@ -39,7 +39,11 @@
     //if the last recorded max length (before cutoff) is larger, keep that
     //otherwise, update maxLength as distance between
     //curr and start of curr (+1 for the character itself)
+    //(eg: a.b.c.d.e.f.c.h.u.i.h.o.p.c.l.m ...
+    //maxLength was 6, got cutoff but keep it if the new curr substring does
+    //not surpass the length of 6
     maxLength = Math.max(maxLength, i - start + 1);
+
   }
   return maxLength;
 }
