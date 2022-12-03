@@ -31,7 +31,14 @@
     //-> second reset: start at "h" counter = {..., c=6,...} -> start = 7
     //right after the first duplicated c)
     if (counter[char] >= start) start = counter[char] + 1;
+
+    //always keep updating the index of char,
+    //if it's a duplicate, this will update it to the one most current (last seen)
     counter[char] = i;
+
+    //if the last recorded max length (before cutoff) is larger, keep that
+    //otherwise, update maxLength as distance between
+    //curr and start of curr (+1 for the character itself)
     maxLength = Math.max(maxLength, i - start + 1);
   }
   return maxLength;
