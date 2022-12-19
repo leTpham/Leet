@@ -23,3 +23,23 @@ function leastCoins(coins, target) {
   }
   return results[results.length - 1] !== Infinity ? results[results.length - 1] : -1
 }
+
+/* Use Inductive Reasoning
+base case: if target = 0 -> results = 0 (needs 0 coin)
+if target = 1 -> results = 0 + 1
+if target = 2 -> results = 1 + results of 1
+...
+if target = n -> results = 1 + results of (n-1)
+
+--> iterate from 1 to target amount
+  and record the result for each increment in array
+  eg: results[10] is the coins needed for target of 10
+  (keep in mind: only replace currMin if:
+    - the target is doable (there is a coin smaller than it)
+    - the new result is smaller than currMin).
+
+    the desired output will be the last element of results array, as it is the
+    smallest possible coin change combination for the target
+    (recorded at results[target])
+
+ */
