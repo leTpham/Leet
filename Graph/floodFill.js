@@ -13,19 +13,22 @@
 
 function floodFill(image, sr, sc, newColor, oldColor = image[sr][sc]) {
   if (
+    //handle pixel's indices out of bound
     sr < 0 ||
     sc < 0 ||
     sr >= image.length ||
     sc >= image[sr].length ||
+    //handle pixel not matching original color we want to change
     image[sr][sc] !== oldColor ||
+    //handle pixel already the new color we want to change into
     image[sr][sc] === newColor
   ) {
     return image;
   }
   image[sr][sc] = newColor;
-  floodFill(image, sr + 1, sc, newColor, oldColor)
-  floodFill(image, sr - 1, sc, newColor, oldColor)
-  floodFill(image, sr, sc + 1, newColor, oldColor)
-  floodFill(image, sr, sc - 1, newColor, oldColor)
+  floodFill(image, sr + 1, sc, newColor, oldColor);
+  floodFill(image, sr - 1, sc, newColor, oldColor);
+  floodFill(image, sr, sc + 1, newColor, oldColor);
+  floodFill(image, sr, sc - 1, newColor, oldColor);
   return image;
 }
