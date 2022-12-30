@@ -15,18 +15,30 @@
 
 function productExceptSelf(nums) {
   let res = [];
-  let leftProds = [];
-  let rightProds = [];
+  let leftProds = []; //incremental multiplication from left
+  let rightProds = []; //incremental multiplication from right
   let left = 1;
   let right = 1;
   for (let i = 0; i < nums.length; i++) {
+    //while traversing nums array, leftProds will keep track of the products
+    //of all numbers up until that num[i] (because we start with 1)
     leftProds[i] = left;
+    //leftProds will just keep getting bigger by the multiplication of the next nums[i];
     left *= nums[i];
+
+    //eg: left arr = [1, (1)x1, (1x1)x2, (1x1x2)x3] = [1, 1, 2, 6]
   }
   for (let j = nums.length - 1; j >= 0; j--) {
+    //while traversing nums array, rightProds will keep track of the products
+    //of all numbers up until that num[j] (because we start with 1)
     rightProds[j] = right;
+    //rightProds will just keep getting bigger by the multiplication of the previous nums[i];
     right *= nums[j];
+    //eg: right arr = [(1x4x3)x2, (1x4)x3, (1)x4 ,1] = [24, 12, 4, 1]
+
+    //update result array as the product of that number's left and right products
     res[j] = rightProds[j] * leftProds[j]
+    //eg: result = [24, 12, 8, 6]
   }
   return res;
 }
