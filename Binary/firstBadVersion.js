@@ -29,9 +29,14 @@ function isBadVersion() {
     let right = n;
     while (left < right) {
       let mid = Math.floor((left + right)/2);
+      //if mid num is already bad, basically push it to only check the stuff before mid
+      //by resetting the right anchor to be current mid, disregard the second half of the set
       if (isBadVersion(mid)) {
         right = mid;
       }
+      //if mid num is not yet bad, disregard the left set since they are all good,
+      //by resetting the left anchor to be the num after current mid,
+      //and repeat the process with the second half until find bad version
       else {
         left = mid + 1;
       }
