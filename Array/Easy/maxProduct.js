@@ -16,7 +16,7 @@
 
 function maxProduct(nums) {
   //a previous very negative product can make the result max if it meets another negative number
-  //so it's necessary to keep track of min 
+  //so it's necessary to keep track of min
   let prevMax = nums[0];
   let prevMin = nums[0];
   let result = nums[0];
@@ -28,3 +28,11 @@ function maxProduct(nums) {
   }
   return result;
 }
+
+//example:[  2,    3,    6,   -4,   -3,   -2,   -1  ]
+
+// i =    |  0  |  1  |  2  |  3  |  4  |  5  |  6  |
+//prevMax=  2      6    36    -4    432    6    864
+//prevMin=  2      3    6    -144   -3   -864   -6
+//result=   2      6    36    36    432   432   864
+
